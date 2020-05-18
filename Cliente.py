@@ -1,7 +1,7 @@
 # Zona de imports de librerías
 import socketio
 import numpy as np
-
+from random import *
 
 # Zona de definir protocolo
 sio = socketio.Client()
@@ -13,7 +13,7 @@ class infoGame:
     # Definimos el init
     def __init__(self):
         self.username = ""
-        self.tournament_id = ""
+        self.tournament_id = 0
         self.game_id = ""
         self.board = []
 
@@ -26,7 +26,7 @@ def onConnect():
         'user_role': 'player'
     })
 
-#Evento de conexión
+# Evento de conexión
 @sio.event
 def conn_error():
     print("La conexión falló.")
@@ -36,21 +36,21 @@ def conn_error():
 def disconnect():
     print("Desconectado")
 
-#Evento de
+# Evento de
 @sio.on('ready')
 def ready(server):
-    typeLine = int(input("0: Horizontal\n 1: Vertical\n"))
-    position = int(input("0-29: "))
+    #!random de la posicion
+    tipoPlayer = randint(0,1);
+    #! random del lugar
+    position = randint(0,29);
 
-    while int(infoGame.board[typeLine][position] != 99):
-        typeLine = int(input("0: Horizontal\n 1: Vertical\n"))
-        position = int(input("0-29: "))
 
+    print("Voy a emitir");
     sio.emit('play', {
-        'player_turn_id': server.player_turn_id,
-        'tournament_id': infoGame.tournament_id,
-        'game_id': infoGame.game_id,
-        'movement': (position, typeLine)
+        'player_turn_id': server['player_turn_id'],
+        'tournament_id':infoGame.tournament_id,
+        'game_id':server['game_id'],
+        'movement': [tipoPlayer, position]
     })
 
 
@@ -77,6 +77,6 @@ def finish(server):
 
 infoGame = infoGame()
 infoGame.username = input("Ingrese el username: \n")
-infoGame.tournament_id = input("Ingrese el torneo ID: \n")
+infoGame.tournament_id = int(input("Ingrese el torneo ID: \n"))
 host = input("Ingrese el host: ")
 sio.connect(host)
