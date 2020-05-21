@@ -70,8 +70,8 @@ def finish(server):
 
     sio.emit('player_ready', {
         'tournament_id': infoGame.tournament_id,
-        'game_id': infoGame.game_id,
-        'player_turn_id': 0
+        'game_id': server['game_id'],
+        'player_turn_id': server['player_turn_id']
     })
 
 
