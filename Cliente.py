@@ -40,16 +40,14 @@ def disconnect():
 @sio.on('ready')
 def ready(server):
     #!random de la posicion
-    tipoPlayer = randint(0,1);
+    tipoPlayer = randint(0, 1)
     #! random del lugar
-    position = randint(0,29);
-
-
-    print("Voy a emitir");
+    position = randint(0, 29)
+    print("Voy a emitir")
     sio.emit('play', {
         'player_turn_id': server['player_turn_id'],
-        'tournament_id':infoGame.tournament_id,
-        'game_id':server['game_id'],
+        'tournament_id': infoGame.tournament_id,
+        'game_id': server['game_id'],
         'movement': [tipoPlayer, position]
     })
 
@@ -78,5 +76,5 @@ def finish(server):
 infoGame = infoGame()
 infoGame.username = input("Ingrese el username: \n")
 infoGame.tournament_id = int(input("Ingrese el torneo ID: \n"))
-host = input("Ingrese el host: ")
+host = "http://localhost:"+input("Ingrese el host: ")
 sio.connect(host)
