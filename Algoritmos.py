@@ -1,7 +1,7 @@
 """ Nombre: Alejandro Tejada
 Curso: Inteligencia Artificial
 Fecha: 28/05/2020
-Programa: Algorithm.py
+Programa: Algoritmos.py
 Propósito: algoritmos de alfa beta etc"""
 
 class Algoritmos:

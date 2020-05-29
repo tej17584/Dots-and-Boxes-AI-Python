@@ -1,7 +1,7 @@
 """ Nombre: Alejandro Tejada
 Curso: Inteligencia Artificial
 Fecha: 28/05/2020
-Programa: Board.py
+Programa: Tablero.py
 Propósito: dibujar el tablero y su lógica """
 
 #zona de librerías

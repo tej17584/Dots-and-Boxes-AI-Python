@@ -2,7 +2,7 @@
 """ Nombre: Alejandro Tejada
 Curso: Inteligencia Artificial
 Fecha: 28/05/2020
-Programa: Nodes.py
+Programa: Nodos.py
 Propósito: construir los nodos del arbol """
 
 class Nodo:  #clase para nodos

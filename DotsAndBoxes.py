@@ -9,17 +9,17 @@ Propósito: lógica del tablero"""
 #------------------------------
 from random import *
 import collections
-from Algorithm import *
-from Board import *
-from Nodes import *
+from Algoritmos import *
+from Tablero import *
+from Nodos import *
 #--------------------------
 
-class DotsNBoxes:  # Clase para los valores de humano y de computadora
+class DotsAndBoxes:  # Clase para los valores de humano y de computadora
     def __init__(self, Board_Xdim, Board_Ydim, Ply_num):
         #! estado actual del game del board
-        currentState = Tablero([], Board_Xdim, Board_Ydim)  # Board.py
-        currentState.Initiate()  # Board.py
-        self.State = Nodo(currentState)  # Nodes.py
+        currentState = Tablero([], Board_Xdim, Board_Ydim)  # Tablero.py
+        currentState.Initiate()  # Tablero.py
+        self.State = Nodo(currentState)  # Nodos.py
         # numero de jugadores
         self.Ply_num = Ply_num
         self.Score = 0

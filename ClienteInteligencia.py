@@ -10,10 +10,10 @@ import socketio
 import numpy as np
 from random import *
 from conversores import *
-from Algorithm import *
-from DotsNBoxes import *
-from Board import *
-from Nodes import *
+from Algoritmos import *
+from DotsAndBoxes import *
+from Tablero import *
+from Nodos import *
 
 # Zona de definir protocolo
 sio = socketio.Client()
@@ -36,7 +36,7 @@ class infoGame:
         # colocamos un valor de lookahead=2
         self.ValorLookAhead = 2
         # instanciamos el match
-        self.Match = DotsNBoxes(11, 11, self.ValorLookAhead)
+        self.Match = DotsAndBoxes(11, 11, self.ValorLookAhead)
 
 
 # Conversor
@@ -106,7 +106,7 @@ def UpdatesLocales(localBoard, serverBoard):
             return primero, segundo
     elif(contador<=2):
          if (transformx >= 0 and transformx <= 10) and (transformy >= 0 and transformy <= 10):
-            print("Coordenada sin AI")
+            print("Coordenada variante")
             #(primero, segundo) = fromCoordToBoard(
             #    random, transformy)
             primero=randint(0, 1)
@@ -216,7 +216,7 @@ def reset():
     infoGame.coordenadaX=-5
     infoGame.coordenadaY=-5
     infoGame.ValorLookAhead=2
-    infoGame.Match=DotsNBoxes(11,11,infoGame.ValorLookAhead)
+    infoGame.Match=DotsAndBoxes(11,11,infoGame.ValorLookAhead)
 
 
 
