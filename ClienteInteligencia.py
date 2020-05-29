@@ -196,7 +196,7 @@ def ready(server):
 
             updateLocalBoard(int(FirtsCoord), int(SecondCoord), 0)
         else:
-            print("Voy a emitir SIN AI")
+            print("Voy a emitir VARIANTE2")
             sio.emit('play', {
                 'player_turn_id': server['player_turn_id'],
                 'tournament_id': infoGame.tournament_id,
