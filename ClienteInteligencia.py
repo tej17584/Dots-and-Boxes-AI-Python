@@ -186,7 +186,7 @@ def ready(server):
         #! random del lugar
         #position = randint(0, 29)
         if FirtsCoord != -5 and SecondCoord != -5 and finalizadoMain != True:
-            print("Voy a emitir NORMAL")
+            #print("Voy a emitir NORMAL")
             sio.emit('play', {
                 'player_turn_id': server['player_turn_id'],
                 'tournament_id': infoGame.tournament_id,
@@ -239,5 +239,5 @@ def finish(server):
 infoGame = infoGame()
 infoGame.username = input("Ingrese el username: \n")
 infoGame.tournament_id = int(input("Ingrese el torneo ID: \n"))
-host = "http://localhost:"+input("Ingrese el host: ")
+host = input("Ingrese el host: ")
 sio.connect(host)
